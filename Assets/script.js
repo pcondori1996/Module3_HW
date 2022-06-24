@@ -16,47 +16,55 @@ function generatePassword() {
  } while (characterNum > 128 || characterNum < 8);
  alert('You have chosen ' + characterNum + ' characters');
 
-var charSet = '';
+let charSet = '';
 var lowerCaseletters = 'abcdfghijklmnopqrstuwxyz';
 
 var lowerCaseOp = window.confirm('Do you want lowercase characters? \nPress "Ok" for a Yes or "Cancel" for no');
   if (lowerCaseOp == true) {
    charSet += lowerCaseletters;
-   alert(charSet); 
+   alert("You have added Lower Case Letters."); 
   } 
 
 var upperCaseletters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  var upperCaseOp = window.confirm('Do you want Uppercase characters? \nPress "Ok" for a Yes or "Cancel" for no');
  if (upperCaseOp == true) {
   charSet += upperCaseletters;
-  alert(charSet); 
+   alert("You have added Upper Case Letters."); 
  } 
 
  var numbers = '0123456789'
  var numericOp = window.confirm('Do you want number characters? \nPress "Ok" for a Yes or "Cancel" for no');
  if (numericOp == true) {
   charSet += numbers;
-  alert(charSet); 
+  alert("You have added numbers."); 
  } 
 
  var specialChars = '!@#$%^&*()=-_'
  var specialCharOp = window.confirm('Do you want special characters? \nPress "Ok" for a Yes or "Cancel" for no');
  if (specialCharOp == true) {
   charSet += specialChars;
-  alert(charSet); 
+  alert("You have added Special Characters."); 
  } 
 
+console.log(charSet);
+ let passwordcreate= '';
+ var characterNumInt = parseInt(characterNum);
+ for(var i=0; i < characterNumInt; i++) {
+  var randomChar = charSet.charAt(Math.floor(Math.random() * charSet.length));
+  passwordcreate += randomChar;
+  }
 
- return 
+
+ return passwordcreate
 }
 
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var passwordText = document.querySelector('#password');
 
-  passwordText.value = password;
+  passwordText.value = password; 
 
 }
 
